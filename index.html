@@ -3,19 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-
-    <script></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              josefin: ["Josefin Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
     <title>Frontend Mentor | Todo app</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
       .attribution {
         font-size: 0.6875rem;
@@ -26,19 +36,64 @@
       }
     </style>
   </head>
-  <body>
-    <div>
-      <h1>TODO</h1>
-    </div>
+  <body class="font-josefin">
+    <div class="flex flex-col min-h-screen">
+      <div
+        class="flex flex-col justify-center items-center text-center bg-[url(images/bg-desktop-light.jpg)] bg-no-repeat bg-cover w-full h-[200px]"
+      >
+        <div
+          class="flex flex-col justify-center items-center gap-3 max-w-[550px] w-full"
+        >
+          <div class="flex flex-row justify-between w-full gap-2 p-3">
+            <h1 class="text-white text-3xl font-bold tracking-[6px]">TODO</h1>
+            <button id="theme-changer">
+              <img src="images/icon-moon.svg" />
+            </button>
+          </div>
+          <div
+            class="flex flex-row gap-3 items-center w-full bg-[hsl(0,0%,98%)] rounded-lg"
+          >
+            <input class="rounded-full" type="checkbox" />
+            <input
+              id="input"
+              class="flex-1 p-2 outline-none"
+              type="text"
+              placeholder="Create a new todo.."
+            />
+          </div>
+        </div>
+      </div>
 
-    <!-- Add dynamic number -->
-    items left All Active Completed Clear Completed Drag and drop to reorder
-    list
+      <div
+        class="bg-[hsl(0,0%,98%)] flex flex-col w-full justify-center items-center h-[400px]"
+      >
+        <div class="bg-white flex flex-col justify-between p-4 rounded-lg">
+          <div
+            id="todo-list"
+            class="bg-white w-full max-w-[550px] p-4 -mt-10"
+          ></div>
+          <div
+            class="flex flex-row justify-between items-center gap-6 w-full max-w-[550px] text-[hsl(236,9%,61%)]"
+          >
+            <span id="itemLeft">0 items left</span>
+            <div class="flex flex-row justify-between gap-3">
+              <span id="all">All</span><span id="active">Active</span
+              ><span id="completed">Completed</span>
+            </div>
+            <div>
+              <span id="clear">Clear Completed</span>
+            </div>
+          </div>
+        </div>
+        <p class="text-[hsl(236,9%,61%)]">Drag and drop to reorder list</p>
+      </div>
+    </div>
 
     <footer class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
+      Coded by <a href="#">Yasmin Ali</a>.
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
