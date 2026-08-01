@@ -36,13 +36,14 @@
       }
     </style>
   </head>
-  <body class="font-josefin">
+  <body class="font-josefin min-h-screen">
     <div class="flex flex-col min-h-screen">
       <div
-        class="flex flex-col justify-center items-center text-center bg-[url(images/bg-desktop-light.jpg)] bg-no-repeat bg-cover w-full h-[200px]"
+        id="ubg"
+        class="flex flex-col justify-center items-center text-center bg-[url(images/bg-desktop-light.jpg)] bg-no-repeat bg-cover w-full h-[200px] sm:bg-[url(images/bg-desktop-light.jpg)]"
       >
         <div
-          class="flex flex-col justify-center items-center gap-3 max-w-[550px] w-full"
+          class="flex flex-col justify-center items-center gap-3 max-w-[540px] px-4 w-full"
         >
           <div class="flex flex-row justify-between w-full gap-2 p-3">
             <h1 class="text-white text-3xl font-bold tracking-[6px]">TODO</h1>
@@ -50,42 +51,47 @@
               <img src="images/icon-moon.svg" />
             </button>
           </div>
-          <div
+          <form
+            id="todo-form"
             class="flex flex-row gap-3 items-center w-full bg-[hsl(0,0%,98%)] rounded-lg"
           >
-            <input class="rounded-full" type="checkbox" />
+            <p class="rounded-full border border-gray-500 w-3 h-3 ml-4"></p>
             <input
               id="input"
-              class="flex-1 p-2 outline-none"
+              class="flex-1 p-2 outline-none bg-transparent"
               type="text"
               placeholder="Create a new todo.."
             />
-          </div>
+          </form>
         </div>
       </div>
 
       <div
-        class="bg-[hsl(0,0%,98%)] flex flex-col w-full justify-center items-center h-[400px]"
+        id="lbg"
+        class="bg-[hsl(0,0%,98%)] flex flex-col w-full justify-center items-center min-h-[400px]"
       >
-        <div class="bg-white flex flex-col justify-between p-4 rounded-lg">
-          <div
-            id="todo-list"
-            class="bg-white w-full max-w-[550px] p-4 -mt-10"
-          ></div>
+        <div
+          id="container"
+          class="bg-white flex flex-col justify-between p-4 rounded-lg shadow-lg w-full max-w-[540px]"
+        >
+          <div id="todo-list" class="bg-white w-full"></div>
           <div
             class="flex flex-row justify-between items-center gap-6 w-full max-w-[550px] text-[hsl(236,9%,61%)]"
           >
-            <span id="itemLeft">0 items left</span>
+            <span><span id="itemLeft">0</span> items left</span>
             <div class="flex flex-row justify-between gap-3">
-              <span id="all">All</span><span id="active">Active</span
-              ><span id="completed">Completed</span>
+              <span id="all" class="cursor-pointer">All</span
+              ><span id="active" class="cursor-pointer">Active</span
+              ><span id="completed" class="cursor-pointer">Completed</span>
             </div>
             <div>
-              <span id="clear">Clear Completed</span>
+              <span id="clear" class="cursor-pointer">Clear Completed</span>
             </div>
           </div>
         </div>
-        <p class="text-[hsl(236,9%,61%)]">Drag and drop to reorder list</p>
+        <p class="text-[hsl(236,9%,61%)] mt-10">
+          Drag and drop to reorder list
+        </p>
       </div>
     </div>
 
